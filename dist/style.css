@@ -1,0 +1,6 @@
+.test {
+  color: blue;
+  .test-child: {
+    color: red;
+  }
+}
