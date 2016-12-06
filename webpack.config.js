@@ -1,5 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+let extractLESS = new ExtractTextPlugin('css/[name].css');
+
 module.exports = {
 
     entry: './app/index.js',
@@ -8,8 +10,12 @@ module.exports = {
         path: './dist'
     },
     module: {
-        loaders: [
-					{test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}
-					]
-    }
+        loaders: [{
+            test: /\.less$/i,
+            loader: extractLESS.extract(['css-loader', 'less-loader'])
+        }]
+    },
+    plugins: [
+        extractLESS
+    ]
 }
