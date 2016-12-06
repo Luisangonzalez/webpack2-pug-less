@@ -1,8 +1,5 @@
-.test {
-  color: #b5b3b3;
-}
-.test .manolo {
-  background: red;
+body {
+  background-color: #b5b3b3;
 }
 .title {
   background-color: blue;

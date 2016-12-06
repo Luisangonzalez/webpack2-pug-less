@@ -61,14 +61,19 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+/* harmony export (immutable) */ exports["a"] = bar;
+function bar() {
+  //
+}
+
 
 /***/ },
 /* 1 */
@@ -78,11 +83,23 @@
 
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(__dirname) {__webpack_require__(0);
-
+"use strict";
+/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_main_js__ = __webpack_require__(0);
 __webpack_require__(1);
+
+__webpack_require__(2);
+
+
+
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__js_main_js__["a" /* default */])();
 
 console.log(__dirname);
 
