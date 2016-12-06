@@ -1,6 +1,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let extractLESS = new ExtractTextPlugin('css/[name].css');
+let extractPUG = new ExtractTextPlugin('html/[name].html');
 
 module.exports = {
 
@@ -13,9 +14,13 @@ module.exports = {
         loaders: [{
             test: /\.less$/i,
             loader: extractLESS.extract(['css-loader', 'less-loader'])
+        }, {
+            test: /\.pug$/i,
+            loader: extractPUG.extract(['pug-html-loader'])
         }]
     },
     plugins: [
-        extractLESS
+        extractLESS,
+        extractPUG
     ]
 }
