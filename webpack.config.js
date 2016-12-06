@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 
 let extractLESS = new ExtractTextPlugin('css/[name].css');
 let extractPUG = new ExtractTextPlugin('html/[name].html');
@@ -22,5 +23,11 @@ module.exports = {
     plugins: [
         extractLESS,
         extractPUG
-    ]
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9000,
+        watchContentBase: true
+    }
 }
