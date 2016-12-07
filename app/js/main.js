@@ -1,3 +1,9 @@
+const $ = require('jquery');
+
 export default function bar() {
-  console.log('Hello Wepback!');
+  $(function() {
+      let $title = $('.title');
+      let $number = $title.data('number');
+      console.log('Hello Wepback!, number: ', $number);
+  });
 }
