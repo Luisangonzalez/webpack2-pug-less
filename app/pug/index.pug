@@ -1,4 +1,7 @@
-script(src="../bundle.js")
-link(href='../css/main.css', rel='stylesheet')
-
-h1.title(data-number="5") Hello Pug ;)
+html
+  head
+    title webpack 2 demo
+    script(src='https://unpkg.com/lodash@4.16.6')
+  body
+    script(src='bundle.js')
+    link(href='main.css', rel='stylesheet')

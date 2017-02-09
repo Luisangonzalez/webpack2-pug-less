@@ -1,26 +1,32 @@
+const webpack = require('webpack'); //to access built-in plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractLESS = new ExtractTextPlugin('[name].css');
+const extractPUG = new ExtractTextPlugin('index.html');
 const path = require('path');
 
-let extractLESS = new ExtractTextPlugin('css/[name].css');
-let extractPUG = new ExtractTextPlugin('html/[name].html');
-
-module.exports = {
-
-    entry: './app/index.js',
+const config = {
+    entry: './app/entry.js',
     output: {
-        filename: 'bundle.js',
-        path: './dist'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js'
     },
     module: {
-        loaders: [{
-            test: /\.less$/i,
-            loader: extractLESS.extract(['css-loader', 'less-loader'])
-        }, {
-            test: /\.pug$/i,
-            loader: extractPUG.extract(['pug-html-loader'])
-        }]
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader'
+            },
+            {
+                test: /\.less$/i,
+                loader: extractLESS.extract(['css-loader', 'less-loader'])
+            }, {
+                test: /\.pug$/i,
+                loader: extractPUG.extract(['pug-html-loader'])
+            }
+        ]
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
         extractLESS,
         extractPUG
     ],
@@ -30,4 +36,7 @@ module.exports = {
         port: 9000,
         watchContentBase: true
     }
-}
+
+};
+
+module.exports = config;
